@@ -12,6 +12,11 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+//dodo 2015 1109 1351
+Route::get('contact', 'WelcomeController@contact');
+//dodo 2015 1109 1416
+//Route::get('about', 'PagesController@index');
+Route::get('about', 'PagesController@about');
 
 Route::get('home', 'HomeController@index');
 
