@@ -40,6 +40,23 @@ class PagesController extends Controller {
         return view('pages.about1', compact('first', 'second'));
     }
 
+    public function about2(){
+        $data['first'] = 'Foo';
+        $data['second'] = 'dodo';
+        return view('pages.about2', $data);
+    }
+
+
+    public function about21(){
+        return view('pages.about21');
+    }
+
+    public function about22(){
+        $data['first'] = 'Foo';
+        $data['second'] = 'dodo';
+        return view('pages.about22', compact('data'));
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
