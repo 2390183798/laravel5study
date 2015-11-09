@@ -24,6 +24,22 @@ class PagesController extends Controller {
         return view('pages.about')->with('name',$name);
     }
 
+    public function about11(){
+        return view('pages.about1')->with(['first' => 'Foo', 'second' => 'dodo']);
+    }
+
+    public function about12(){
+        $data['first'] = 'Foo';
+        $data['second'] = 'dodo';
+        return view('pages.about1', $data);
+    }
+
+    public function about13(){
+        $first = 'Foo';
+        $second = 'dodo';
+        return view('pages.about1', compact('first', 'second'));
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

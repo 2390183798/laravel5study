@@ -21,3 +21,10 @@ Thank you for considering contributing to the Laravel framework! The contributio
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+### Self note
+
+#### use [composer create-project laravel/laravel xxxprojectxxx "~5.0.0" --prefer-dist] to create project
+
+#### use artisan command [php artisan make:controller PagesController] to create Controller and some method from routes.php
