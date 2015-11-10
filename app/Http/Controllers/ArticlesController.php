@@ -17,6 +17,19 @@ class ArticlesController extends Controller {
         return view('articles.index', compact('articles'));
     }
 
+    public function show($id){
+        $article = Article::find($id);
+        // 找不到文章，抛出404
+        if(is_null($article)){
+            abort(404);
+        }
+        return view('articles.show', compact('article'));
+    }
+
+//    public function show($id){
+//        $article = Article::findOrFail($id);
+//        return view('articles.show', compact('article'));
+//    }
 
     public function about(){
         return "ArticlesController  about dodo";

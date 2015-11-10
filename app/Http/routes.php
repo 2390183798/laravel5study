@@ -30,6 +30,8 @@ Route::get('about22', 'PagesController@about22');
 Route::get('article', 'ArticlesController@index');
 Route::get('article/about', 'ArticlesController@about');
 
+Route::get('article/{id}', 'ArticlesController@show');
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
