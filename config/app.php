@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',  //添加illuminate的html模板的时候添加， 2015 1110 1042
 
 		/*
 		 * Application Service Providers...
@@ -193,6 +194,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+        'Form'      => 'Illuminate\Html\FormFacade',    //添加illuminate的html模板的时候添加， 2015 1110 1042
+        'Html'      => 'Illuminate\Html\HtmlFacade',    //添加illuminate的html模板的时候添加， 2015 1110 1042
 	],
 
 ];

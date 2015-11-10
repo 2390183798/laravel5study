@@ -37,5 +37,8 @@ class ArticlesController extends Controller {
 //        return view('pages.about')->with('name',$name);
     }
 
+    public function create(){
+        return view('articles.create');
+    }
 
 }
