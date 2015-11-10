@@ -43,7 +43,7 @@ Route::get('about22', 'PagesController@about22');
 
 
 //article test
-Route::get('article', 'ArticlesController@index');
+Route::get('articles', 'ArticlesController@index');
 Route::get('articles/about', 'ArticlesController@about');
 
 Route::get('articles/create', 'ArticlesController@create');// form表单
