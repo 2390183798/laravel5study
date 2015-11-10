@@ -44,10 +44,21 @@ Route::get('about22', 'PagesController@about22');
 
 //article test
 Route::get('article', 'ArticlesController@index');
-Route::get('article/about', 'ArticlesController@about');
+Route::get('articles/about', 'ArticlesController@about');
 
-Route::get('article/create', 'ArticlesController@create');// form表单
-Route::get('article/{id}', 'ArticlesController@show');
+Route::get('articles/create', 'ArticlesController@create');// form表单
+//Route::post('articles/create', 'ArticlesController@store');// form表单
+Route::post('articles/getForm', 'ArticlesController@store');    //用于接受form数据用
+
+Route::post('foo/bar', function(){
+    return 'Hello World foobar';
+});
+Route::any('foo', function(){
+    return 'Hello World foo';
+});
+
+
+Route::get('articles/{id}', 'ArticlesController@show');
 
 
 

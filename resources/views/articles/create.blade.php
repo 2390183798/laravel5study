@@ -1,11 +1,24 @@
 @extends('main')
 
 @section('content')
-    <h1>Wirte a dodo form</h1>
+    <h1> a form dodo</h1>
 
     <hr/>
 
-    {!! Form::open() !!}
+    {{--{!! Form::open(['url' => '/articles']) !!}--}}
+    {!! Form::open(['url' => '/articles/getForm']) !!}
+    <div class="form-group">
+        {!! Form::label('title', 'Title:') !!}
+        {!! Form::text('title', null, ['class' => 'form-control']) !!}
+    </div>
 
+    <div class="form-group">
+        {!! Form::label('body', 'Body:') !!}
+        {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control']) !!}
+    </div>
     {!! Form::close() !!}
 @stop
