@@ -27,6 +27,9 @@ Route::get('about2', 'PagesController@about2');
 Route::get('about21', 'PagesController@about21');
 Route::get('about22', 'PagesController@about22');
 
+Route::get('article', 'ArticlesController@index');
+Route::get('article/about', 'ArticlesController@about');
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
