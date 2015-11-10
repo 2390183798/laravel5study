@@ -5,8 +5,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
-//use Illuminate\Http\Request;
-use Request;
+
+//use Request;  //提交，存入数据库
+//use App\Http\Requests\CreateArticleRequest;     //有认证
+use Illuminate\Http\Request;  //验证的Request
 
 class ArticlesController extends Controller {
 	//
@@ -63,16 +65,45 @@ class ArticlesController extends Controller {
         return view('articles.create');
     }
 
-    public function store(){
-//        return "ddd";
-
-        $input = Request::all();
-//        $input['published_at'] = Carbon::now();   //当时把publish_at设置为当前时间， 现在用view中提交的时间
-        Article::create($input);
-        return redirect('articles');
-
+    //直接    入数据库
+//    public function store(){
+////        return "ddd";
+//
 //        $input = Request::all();
-//        return $input;
+////        $input['published_at'] = Carbon::now();   //当时把publish_at设置为当前时间， 现在用view中提交的时间
+//        Article::create($input);
+//        return redirect('articles');
+//
+////        $input = Request::all();
+////        return $input;
+//    }
+
+    //并且修改store()方法，  用CreateArticleRequest 去验证
+//    public function store(CreateArticleRequest $request){
+//        Article::create($request->all());
+//        return redirect('articles');
+//    }
+
+    //并且修改store()方法，  直接用Validate 去验证
+    public function store(Request $request){
+        $this->validate($request, ['title' => 'required|min:3', 'body' =>'required', 'published_at' => 'required|date']);
+        Article::create($request->all());
+        return redirect('articles');
     }
 
+    public function edit($id){
+        $article = Article::find($id);
+        // 找不到文章，抛出404
+        if(is_null($article)){
+            abort(404);
+        }
+//        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    public function update($id, Request $request){
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect('articles');
+    }
 }

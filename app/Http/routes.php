@@ -49,6 +49,9 @@ Route::get('articles/about', 'ArticlesController@about');
 Route::get('articles/create', 'ArticlesController@create');// form表单
 //Route::post('articles/create', 'ArticlesController@store');// form表单
 Route::post('articles/getForm', 'ArticlesController@store');    //用于接受form数据用
+Route::get('articles/{id}/edit', 'ArticlesController@edit');
+Route::resource('articles', 'ArticlesController');
+
 
 Route::post('foo/bar', function(){
     return 'Hello World foobar';
@@ -58,7 +61,7 @@ Route::any('foo', function(){
 });
 
 
-Route::get('articles/{id}', 'ArticlesController@show');
+//Route::get('articles/{id}', 'ArticlesController@show');
 
 
 
