@@ -27,4 +27,11 @@ class Article extends Model {
         $query->where('published_at', '<=', Carbon::now());
     }
 
+    /**
+     * add in 2015 11 11
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
